@@ -11,7 +11,7 @@ requires-python = ">=3.8"
 license = "MIT"
 keywords = []
 authors = [
-  { name = "U.N. Owen", email = "void@some.where" },
+  { name = "Samuel Fry", email = "samueljfry@protonmail.com" },
 ]
 classifiers = [
   "Development Status :: 4 - Beta",
@@ -25,8 +25,8 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
 dependencies = [
-    "fastapi[standard]>=0.116.1",
-    "sqlmodel>=0.0.24",
+  "fastapi[standard]>=0.116.1",
+  "sqlmodel>=0.0.24",
 ]
 
 [project.urls]
@@ -61,4 +61,9 @@ exclude_lines = [
   "no cov",
   "if __name__ == .__main__.:",
   "if TYPE_CHECKING:",
+]
+
+[tool.hatch.envs.hatch-test]
+extra-dependencies = [
+  "pytest-bdd",
 ]
