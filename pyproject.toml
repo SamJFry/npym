@@ -7,7 +7,7 @@ name = "npym"
 dynamic = ["version"]
 description = 'A storage platform for build artefacts.'
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.13"
 license = "MIT"
 keywords = []
 authors = [
