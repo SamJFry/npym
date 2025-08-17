@@ -37,10 +37,14 @@ Source = "https://github.com/U.N. Owen/npym"
 [tool.hatch.version]
 path = "src/npym/__about__.py"
 
+[tool.hatch.envs.default.scripts]
+dev = "fastapi dev src/npym/main.py"
+
 [tool.hatch.envs.types]
 extra-dependencies = [
   "mypy>=1.0.0",
 ]
+
 [tool.hatch.envs.types.scripts]
 check = "mypy --install-types --non-interactive {args:src/npym tests}"
 
