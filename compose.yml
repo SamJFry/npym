@@ -1,0 +1,23 @@
+services:
+  npym:
+    image: npym
+    ports:
+      - 8000:8000
+
+  db:
+    image: postgres:17.6
+    restart: always
+    shm_size: 128mb
+    volumes:
+      - type: tmpfs
+        target: /dev/shm
+        tmpfs:
+          size: 134217728
+    environment:
+      POSTGRES_PASSWORD: example
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
