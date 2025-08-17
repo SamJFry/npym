@@ -27,6 +27,7 @@ classifiers = [
 dependencies = [
   "fastapi[standard]>=0.116.1",
   "sqlmodel>=0.0.24",
+  "uvicorn[standard]>=0.35.0",
 ]
 
 [project.urls]
