@@ -1,3 +1,4 @@
+import httpx
 from pytest_bdd import scenario, given, when, then
 
 
@@ -18,7 +19,7 @@ def add_packages(start_service):
 
 @when("I go to the simple API", target_fixture="request_result")
 def go_to_simple_api(add_packages):
-    pass
+    return httpx.get("http://localhost:8000/")
 
 
 @then("I should see all the packages")

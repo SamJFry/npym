@@ -71,4 +71,5 @@ exclude_lines = [
 [tool.hatch.envs.hatch-test]
 extra-dependencies = [
   "pytest-bdd",
+  "httpx>=0.28.1",
 ]
