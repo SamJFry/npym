@@ -5,6 +5,11 @@ from pathlib import Path
 import httpx
 import pytest
 
+def attempt_connect():
+    try:
+        return httpx.get("http://localhost:8080")
+    except httpx.ConnectError:
+        attempt_connect()
 
 @pytest.fixture
 def start_service():
@@ -14,6 +19,5 @@ def start_service():
         ["cmd", "/c", "sudo",  "docker",  "compose", "up"],
         shell=True
     )
-    service_status = httpx.get("http://localhost:8000")
-    while service_status.status_code != 200:
-        service_status = httpx.get("http://localhost:8000")
+    attempt_connect()
+
