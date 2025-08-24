@@ -1,5 +1,5 @@
 import httpx
-from pytest_bdd import scenario, given, when, then
+from pytest_bdd import given, scenario, then, when
 
 
 @scenario("simple.feature", "Getting a package list")

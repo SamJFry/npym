@@ -5,6 +5,7 @@ from pathlib import Path
 import httpx
 import pytest
 
+
 def attempt_connect():
     try:
         return httpx.get("http://localhost:8080")
@@ -15,9 +16,8 @@ def attempt_connect():
 def start_service():
     os.chdir(Path(__name__).parent.parent)
     print(os.getcwd())
-    subprocess.call(
-        ["cmd", "/c", "sudo",  "docker",  "compose", "up"],
-        shell=True
-    )
+    subprocess.call(["cmd", "/c", "sudo",  "docker",  "compose", "up"], shell=True)
     attempt_connect()
+    yield
+    subprocess.call(["cmd", "/c", "sudo", "docker", "compose", "down"], shell=True)
 
