@@ -1,6 +1,4 @@
-import os
 import subprocess
-import time
 from pathlib import Path
 from threading import Thread
 from multiprocessing import Pool
@@ -12,9 +10,8 @@ import pytest
 
 def attempt_connect():
     try:
-        print("testing connection")
         return httpx.get("http://localhost:8000")
-    except (httpx.ConnectError, httpx.ReadError):
+    except:
         attempt_connect()
 
 def start_docker():
@@ -27,5 +24,4 @@ def start_service():
     docker.start()
     attempt_connect()
     yield
-    subprocess.call(["docker", "compose", "down"], shell=True)
-
+    docker._delete()

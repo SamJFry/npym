@@ -18,8 +18,8 @@ def add_packages(start_service):
 
 
 @when("I go to the simple API", target_fixture="request_result")
-def go_to_simple_api(add_packages):
-    return httpx.get("http://localhost:8000/")
+def go_to_simple_api():
+    return httpx.get("http://localhost:8000/").text
 
 
 @then("I should see all the packages")
