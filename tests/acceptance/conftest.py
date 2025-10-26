@@ -14,12 +14,18 @@ def attempt_connect():
     except:
         attempt_connect()
 
+
 def start_docker():
     subprocess.call(["docker", "compose", "up"])
 
 
+@pytest.fixture()
+def build_docker()
+    subprocess.call(["docker", "build", "."])
+
+
 @pytest.fixture
-def start_service():
+def start_service(build_docker):
     docker = Thread(target=start_docker)
     docker.start()
     attempt_connect()

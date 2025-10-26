@@ -4,5 +4,12 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"hello": "world"}
+    return (
+        "<!DOCTYPE html>"
+        "<html>"
+        "  <body>"
+        '    <a href="foo/">foo</a>'
+        "  </body>"
+        "</html>"
+    )
 
